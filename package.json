@@ -1,0 +1,15 @@
+{
+  "name": "NodejsAcademind",
+  "version": "1.0.0",
+  "description": "Nodejs api max youtube",
+  "main": "index.js",
+  "author": "Prashant Bhat",
+  "license": "MIT",
+  "scripts": {
+    "test": "nodemon  server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
+  }
+}
