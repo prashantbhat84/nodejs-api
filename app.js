@@ -14,6 +14,23 @@ app.use(
   })
 );
 app.use(logger("dev"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Allow-Control-Headers",
+    "Origin,X-Requested-With,Content-Type,Accept,Authorization"
+  );
+  if (req.method === "OPTIONS") {
+    res.header(
+      "Acesss-Allow-Control-Allow-Methods",
+      "PUT, POST, GET DELETE,PATCH"
+    );
+    return res.status(200).json({});
+  }
+  next();
+});
 
 app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
